@@ -1,0 +1,30 @@
+h1, h2 {
+  font-family: Lato;
+}
+
+body {
+  margin: 20px;
+  overflow: hidden;
+}
+
+
+
+#skull {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 200px;
+  grid-template-rows: 200px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/06/Skull_and_Crossbones.svg');
+  background-size: contain;
+  position: absolute;
+}
+
+#page {
+  display: grid;
+  position: absolute;
+  place-items: center;
+  grid-template-columns: 400px;
+  grid-template-rows: 400px;
+  background-color: black;
+  cursor: move;
+}
