@@ -1,6 +1,6 @@
 // Import stylesheets
 import './style.css';
-import { merge } from 'rxjs';
+import { merge, fromEvent } from 'rxjs';
 import { startWith, mergeMap } from 'rxjs/operators';
 import AnimationService from './animation.service';
 import { AnimatedElement } from './animated-element';
@@ -14,7 +14,7 @@ function runApp() {
 
   page.moveX = (window.innerWidth / 2) - 200;
 
-  const windowResize$ = page.windowResize$.pipe(
+  const windowResize$ = fromEvent(window, 'resize').pipe(
     mergeMap(() => page.center$)
   );
 

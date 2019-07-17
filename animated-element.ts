@@ -5,6 +5,7 @@ import { ElementTransform } from './element-transform';
 
 export class AnimatedElement {
   transform = new ElementTransform();
+  mouseDown$ = fromEvent(this.elem, 'mousedown');
 
   constructor(public htmlElement: HTMLElement) { }
 
@@ -24,6 +25,10 @@ export class AnimatedElement {
     this.htmlElement.style.left = `${x}px`;
   }
 
+  set moveY(y: number) {
+    this.htmlElement.style.top = `${y}px`;
+  }
+
   set moveZ(z: number) {
     this.transform.moveZ = z;
     this.htmlElement.style.transform = this.transform.toString();
@@ -33,10 +38,6 @@ export class AnimatedElement {
     this.transform.rotate = deg;
     this.htmlElement.style.transform = this.transform.toString();
   }
-
-  mouseDown$ = fromEvent(this.elem, 'mousedown');
-
-  windowResize$ = fromEvent(window, 'resize');
 
   twist$ = (indeterminate = true, rotations = 1, clockwise = true) =>
     defer(() => {
