@@ -17,6 +17,10 @@ export class AnimatedElement {
     return this.htmlElement.getBoundingClientRect().left;
   }
 
+  get y() {
+    return this.htmlElement.getBoundingClientRect().top;
+  }
+
   get width() {
     return this.htmlElement.clientWidth;
   }
